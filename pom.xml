@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
+    <packaging>jar</packaging>
+    <groupId>org.webjars</groupId>
+    <artifactId>livejs</artifactId>
+    <version>4.0-SNAPSHOT</version>
+    <name>livejs</name>
+    <description>WebJar for http://livejs.com/</description>
+    <url>http://webjars.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <upstream.url>http://livejs.com/live.js</upstream.url>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
+        <requirejs>
+            {
+                "paths": {
+                    "livejs": "live.js"
+                },
+                "shim": {
+                    "livejs": []
+                }
+            }
+        </requirejs>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>jjYBdx4IL@github.com</id>
+            <name>jjYBdx4IL</name>
+            <email>jjYBdx4IL@github.com</email>
+            <url>https://github.com/jjYBdx4IL</url>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>http://github.com/webjars/livejs</url>
+        <connection>scm:git:https://github.com/webjars/livejs.git</connection>
+        <developerConnection>scm:git:https://github.com/webjars/livejs.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <targetPath>${destDir}</targetPath>
+            </resource>
+        </resources>    
+    
+        <plugins>
+            <plugin>
+                <groupId>com.jamesward</groupId>
+                <artifactId>unsnapshot-maven-plugin</artifactId>
+                <version>0.2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unsnapshot</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>sonatype-nexus-staging</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>com.jamesward</groupId>
+                                        <artifactId>unsnapshot-maven-plugin</artifactId>
+                                        <versionRange>[0.2,)</versionRange>
+                                        <goals>
+                                            <goal>unsnapshot</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-antrun-plugin</artifactId>
+                                        <versionRange>[1.8,)</versionRange>
+                                        <goals>
+                                            <goal>run</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

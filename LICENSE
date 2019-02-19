@@ -1,21 +1,22 @@
-MIT License
+ /*
+  Live.js - One script closer to Designing in the Browser
+  Written for Handcraft.com by Martin Kool (@mrtnkl).
 
-Copyright (c) 2019 jjYBdx4IL
+  Version 4.
+  Recent change: Made stylesheet and mimetype checks case insensitive.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+  http://livejs.com
+  http://livejs.com/license (MIT)  
+  @livejs
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+  Include live.js#css to monitor css changes only.
+  Include live.js#js to monitor js changes only.
+  Include live.js#html to monitor html changes only.
+  Mix and match to monitor a preferred combination such as live.js#html,css  
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+  By default, just include live.js to monitor all css, js and html changes.
+  
+  Live.js can also be loaded as a bookmarklet. It is best to only use it for CSS then,
+  as a page reload due to a change in html or css would not re-include the bookmarklet.
+  To monitor CSS and be notified that it has loaded, include it as: live.js#css,notify
+*/
